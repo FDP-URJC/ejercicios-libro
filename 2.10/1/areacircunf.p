@@ -1,6 +1,6 @@
 {$mode objfpc}{$H-}{$R+}{$T+}{$Q+}{$V+}{$D+}{$X-}{$warnings on}
 {
-	caular área de circunferencia de radio r
+	calcular área de circunferencia de radio r
 }
 program areacircunf;
 
