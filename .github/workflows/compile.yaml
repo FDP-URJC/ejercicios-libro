@@ -1,0 +1,31 @@
+---
+name: "Basic compilation"
+"on":
+  push:
+    branches:
+      - main
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os:
+          - ubuntu:latest
+          - fedora:latest
+        stable: [true]
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@main
+      - name: "Install build dependencies"
+        run: bash .github/workflows/install-dependencies
+      - name: "Check build dependencies"
+        run: type fpc
+      - name: "Build Pascal programs from root Makefile"
+        run: make
+
+    container:
+      image: ${{matrix.os}}
+      env:
+        DISTRO: ${{matrix.os}}
+      options: --privileged --device /dev/loop-control

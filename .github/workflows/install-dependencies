@@ -1,0 +1,22 @@
+#!/bin/bash -ex
+
+COMMON_PKGS="make"
+UBUNTU_PKGS="fp-compiler"
+FEDORA_PKGS="fpc"
+
+case "${DISTRO}" in
+debian:*|ubuntu:*)
+    apt-get -y clean
+    apt-get -y update
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get -y install ${COMMON_PKGS} ${UBUNTU_PKGS}
+    ;;
+
+*fedora:*)
+    printf 'max_parallel_downloads=10\nfastestmirror=1\n' >> /etc/dnf/dnf.conf
+    dnf -y clean all
+    dnf -y upgrade
+    dnf -y --setopt=deltarpm=0 update
+    dnf -y install ${COMMON_PKGS} ${FEDORA_PKGS}
+    ;;
+esac
