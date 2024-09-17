@@ -1,6 +1,7 @@
 SUBDIRS=2.10/1
 SUBDIRS+=2.10/2
 SUBDIRS+=3.1/1
+SUBDIRS+=3.3/1
 
 all:
 	@for dir in $(SUBDIRS); do \
