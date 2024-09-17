@@ -1,5 +1,0 @@
-Modifica el último programa que hemos mostrado para que calcule el área de un
-circulo de radio dado en lugar de la longitud de la circunferencia dado el radio.
-Presta atención a las normas de estilo. Esto quiere decir que tendrás que cambiar el
-nombre del programa y tal vez otras cosas además de simplemente cambiar el
-cálculo.
